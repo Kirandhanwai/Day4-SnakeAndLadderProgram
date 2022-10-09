@@ -32,7 +32,9 @@ public class SnakeAndLadder {
 			position=0;
 		if (position > 100)
 			position = position - dice;
+		
 	}
+	
 
 	public static void main(String[] args) {
 		do {
