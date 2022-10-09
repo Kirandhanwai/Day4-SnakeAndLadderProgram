@@ -28,16 +28,19 @@ public class SnakeAndLadder {
 			System.out.println("NO_PLAY");
 			position=position;
 		}
-
 		if (position<=0)
 			position=0;
+		if (position > 100)
+			position = position - dice;
 	}
 
 	public static void main(String[] args) {
+		do {
 		int dice = diceRoll();
 		System.out.println("dice= "+dice);
 		optionCheck(dice);
 		System.out.println("position = "+position);
+		} while(position != 100);
 
 	}
 }
