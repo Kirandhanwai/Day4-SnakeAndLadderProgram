@@ -5,16 +5,40 @@ import java.util.Random;
 public class SnakeAndLadder {
 	
 	static int position = 0;
-	
-	static int diceRoll() {
-		int diceRoll = (int)(Math.random()*10)%6 + 1;
-		return diceRoll;
+	static final int NO_PLAY = 0;
+	static final int LADDER = 1;
+	static final int SNAKE = 2;
+	public static int diceRoll() {
+		return (int)(Math.random()*10)%6 + 1;
+		
 	}
-	
-	public static void main(String[] Args) {
-	int diceRoll = diceRoll();	
-	
+	public static void optionCheck(int dice) {
+		Random random = new Random();
+		int option = random.nextInt(3);
+		switch (option) {
+		case LADDER :
+			System.out.println("LADDER");
+			position =position + dice;
+			break;
+		case SNAKE :
+			System.out.println("SNAKE");
+			position =position - dice;
+			break;
+		case NO_PLAY :
+			System.out.println("NO_PLAY");
+			position=position;
+		}
+
+		if (position<=0)
+			position=0;
 	}
 
+	public static void main(String[] args) {
+		int dice = diceRoll();
+		System.out.println("dice= "+dice);
+		optionCheck(dice);
+		System.out.println("position = "+position);
+
+	}
 }
 
