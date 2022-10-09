@@ -37,13 +37,15 @@ public class SnakeAndLadder {
 	
 
 	public static void main(String[] args) {
+		int count = 0;
 		do {
 		int dice = diceRoll();
+		count++;
 		System.out.println("dice= "+dice);
 		optionCheck(dice);
 		System.out.println("position = "+position);
 		} while(position != 100);
-
+		System.out.println("Number of times dice was played : "+count);
 	}
 }
 
